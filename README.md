@@ -44,6 +44,6 @@ FYI：Quartus安装包可以问通信与信息工程学院的同学要（白嫖�
 
 ### 参考资料
 
-本项目参考了YuanZhaoHui1999的trafficlight-based-on-Verilog，感谢其共享！
+本项目基于YuanZhaoHui1999的trafficlight-based-on-Verilog，并加以修改以满足课程要求，感谢其共享！
 
 链接：https://github.com/YuanZhaoHui1999/trafficlight-based-on-Verilog
