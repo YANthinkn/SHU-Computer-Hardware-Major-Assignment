@@ -1,0 +1,756 @@
+Analysis & Synthesis report for traffic_led
+Mon Jul 04 19:18:05 2022
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: state_trans_model:u0_state_trans_model
+ 13. Parameter Settings for User Entity Instance: bit_seg_module:u1_bit_seg_module
+ 14. Parameter Settings for User Entity Instance: led_module:u2_led_module
+ 15. Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Div2
+ 16. Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Mod0
+ 17. Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Div0
+ 18. Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Mod2
+ 19. Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Div1
+ 20. Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Mod1
+ 21. Port Connectivity Checks: "bit_seg_module:u1_bit_seg_module"
+ 22. Port Connectivity Checks: "state_trans_model:u0_state_trans_model"
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jul 04 19:18:05 2022      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; traffic_led                                ;
+; Top-level Entity Name              ; traffic_led                                ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 779                                        ;
+;     Total combinational functions  ; 766                                        ;
+;     Dedicated logic registers      ; 124                                        ;
+; Total registers                    ; 124                                        ;
+; Total pins                         ; 46                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE6F17C8        ;                    ;
+; Top-level entity name                                                      ; traffic_led        ; traffic_led        ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 16     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+; led_module.v                     ; yes             ; User Verilog HDL File        ; E:/trafficled/led_module.v                                         ;         ;
+; traffic_led.v                    ; yes             ; User Verilog HDL File        ; E:/trafficled/traffic_led.v                                        ;         ;
+; state_trans_model.v              ; yes             ; Auto-Found Verilog HDL File  ; E:/trafficled/state_trans_model.v                                  ;         ;
+; bit_seg_module.v                 ; yes             ; Auto-Found Verilog HDL File  ; E:/trafficled/bit_seg_module.v                                     ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal131.inc                   ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc      ;         ;
+; db/lpm_divide_sim.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/trafficled/db/lpm_divide_sim.tdf                                ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/trafficled/db/sign_div_unsign_klh.tdf                           ;         ;
+; db/alt_u_div_s6f.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/trafficled/db/alt_u_div_s6f.tdf                                 ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/trafficled/db/add_sub_7pc.tdf                                   ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/trafficled/db/add_sub_8pc.tdf                                   ;         ;
+; db/lpm_divide_vam.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/trafficled/db/lpm_divide_vam.tdf                                ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 779             ;
+;                                             ;                 ;
+; Total combinational functions               ; 766             ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 196             ;
+;     -- 3 input functions                    ; 199             ;
+;     -- <=2 input functions                  ; 371             ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 535             ;
+;     -- arithmetic mode                      ; 231             ;
+;                                             ;                 ;
+; Total registers                             ; 124             ;
+;     -- Dedicated logic registers            ; 124             ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 46              ;
+; Embedded Multiplier 9-bit elements          ; 0               ;
+; Maximum fan-out node                        ; sys_rst_n~input ;
+; Maximum fan-out                             ; 124             ;
+; Total fan-out                               ; 2541            ;
+; Average fan-out                             ; 2.59            ;
++---------------------------------------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                    ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Library Name ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |traffic_led                                ; 766 (0)           ; 124 (0)      ; 0           ; 0            ; 0       ; 0         ; 46   ; 0            ; |traffic_led                                                                                                                                  ; work         ;
+;    |bit_seg_module:u1_bit_seg_module|       ; 550 (59)          ; 39 (39)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module                                                                                                 ; work         ;
+;       |lpm_divide:Div0|                     ; 81 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div0                                                                                 ; work         ;
+;          |lpm_divide_sim:auto_generated|    ; 81 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div0|lpm_divide_sim:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_klh:divider|   ; 81 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div0|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider                       ; work         ;
+;                |alt_u_div_s6f:divider|      ; 81 (81)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div0|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; work         ;
+;       |lpm_divide:Div1|                     ; 80 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div1                                                                                 ; work         ;
+;          |lpm_divide_sim:auto_generated|    ; 80 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div1|lpm_divide_sim:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_klh:divider|   ; 80 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div1|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider                       ; work         ;
+;                |alt_u_div_s6f:divider|      ; 80 (80)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div1|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; work         ;
+;       |lpm_divide:Div2|                     ; 81 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div2                                                                                 ; work         ;
+;          |lpm_divide_sim:auto_generated|    ; 81 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div2|lpm_divide_sim:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_klh:divider|   ; 81 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div2|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider                       ; work         ;
+;                |alt_u_div_s6f:divider|      ; 81 (81)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Div2|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; work         ;
+;       |lpm_divide:Mod0|                     ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod0                                                                                 ; work         ;
+;          |lpm_divide_vam:auto_generated|    ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod0|lpm_divide_vam:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_klh:divider|   ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod0|lpm_divide_vam:auto_generated|sign_div_unsign_klh:divider                       ; work         ;
+;                |alt_u_div_s6f:divider|      ; 83 (83)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod0|lpm_divide_vam:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; work         ;
+;       |lpm_divide:Mod1|                     ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod1                                                                                 ; work         ;
+;          |lpm_divide_vam:auto_generated|    ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod1|lpm_divide_vam:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_klh:divider|   ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod1|lpm_divide_vam:auto_generated|sign_div_unsign_klh:divider                       ; work         ;
+;                |alt_u_div_s6f:divider|      ; 83 (83)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod1|lpm_divide_vam:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; work         ;
+;       |lpm_divide:Mod2|                     ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod2                                                                                 ; work         ;
+;          |lpm_divide_vam:auto_generated|    ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod2|lpm_divide_vam:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_klh:divider|   ; 83 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod2|lpm_divide_vam:auto_generated|sign_div_unsign_klh:divider                       ; work         ;
+;                |alt_u_div_s6f:divider|      ; 83 (83)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|bit_seg_module:u1_bit_seg_module|lpm_divide:Mod2|lpm_divide_vam:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; work         ;
+;    |led_module:u2_led_module|               ; 21 (21)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|led_module:u2_led_module                                                                                                         ; work         ;
+;    |state_trans_model:u0_state_trans_model| ; 195 (195)         ; 61 (61)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_led|state_trans_model:u0_state_trans_model                                                                                           ; work         ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                ;
++----------------------------------------------------+--------------------------------------------------------------+
+; Register name                                      ; Reason for Removal                                           ;
++----------------------------------------------------+--------------------------------------------------------------+
+; state_trans_model:u0_state_trans_model|state[3]    ; Stuck at GND due to stuck port data_in                       ;
+; state_trans_model:u0_state_trans_model|n_time[9]   ; Merged with state_trans_model:u0_state_trans_model|n_time[8] ;
+; state_trans_model:u0_state_trans_model|e_time[9]   ; Merged with state_trans_model:u0_state_trans_model|e_time[8] ;
+; state_trans_model:u0_state_trans_model|w_time[8,9] ; Merged with state_trans_model:u0_state_trans_model|e_time[8] ;
+; state_trans_model:u0_state_trans_model|w_time[7]   ; Merged with state_trans_model:u0_state_trans_model|e_time[7] ;
+; state_trans_model:u0_state_trans_model|w_time[6]   ; Merged with state_trans_model:u0_state_trans_model|e_time[6] ;
+; state_trans_model:u0_state_trans_model|w_time[5]   ; Merged with state_trans_model:u0_state_trans_model|e_time[5] ;
+; state_trans_model:u0_state_trans_model|w_time[4]   ; Merged with state_trans_model:u0_state_trans_model|e_time[4] ;
+; state_trans_model:u0_state_trans_model|w_time[3]   ; Merged with state_trans_model:u0_state_trans_model|e_time[3] ;
+; state_trans_model:u0_state_trans_model|w_time[2]   ; Merged with state_trans_model:u0_state_trans_model|e_time[2] ;
+; state_trans_model:u0_state_trans_model|w_time[1]   ; Merged with state_trans_model:u0_state_trans_model|e_time[1] ;
+; state_trans_model:u0_state_trans_model|w_time[0]   ; Merged with state_trans_model:u0_state_trans_model|e_time[0] ;
+; state_trans_model:u0_state_trans_model|s_time[9]   ; Merged with state_trans_model:u0_state_trans_model|s_time[8] ;
+; state_trans_model:u0_state_trans_model|e_time[8]   ; Merged with state_trans_model:u0_state_trans_model|e_time[7] ;
+; Total Number of Removed Registers = 15             ;                                                              ;
++----------------------------------------------------+--------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 124   ;
+; Number of registers using Synchronous Clear  ; 41    ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 98    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 26    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------+
+; Inverted Register Statistics                                 ;
++----------------------------------------------------+---------+
+; Inverted Register                                  ; Fan out ;
++----------------------------------------------------+---------+
+; bit_seg_module:u1_bit_seg_module|bit[0]            ; 1       ;
+; bit_seg_module:u1_bit_seg_module|bit[1]            ; 1       ;
+; bit_seg_module:u1_bit_seg_module|bit[2]            ; 1       ;
+; bit_seg_module:u1_bit_seg_module|bit[3]            ; 1       ;
+; bit_seg_module:u1_bit_seg_module|bit[4]            ; 1       ;
+; bit_seg_module:u1_bit_seg_module|bit[5]            ; 1       ;
+; bit_seg_module:u1_bit_seg_module|bit[6]            ; 1       ;
+; bit_seg_module:u1_bit_seg_module|bit[7]            ; 1       ;
+; led_module:u2_led_module|led[2]                    ; 1       ;
+; led_module:u2_led_module|led[5]                    ; 1       ;
+; led_module:u2_led_module|led[8]                    ; 1       ;
+; led_module:u2_led_module|led[11]                   ; 1       ;
+; led_module:u2_led_module|led[14]                   ; 1       ;
+; led_module:u2_led_module|led[17]                   ; 1       ;
+; led_module:u2_led_module|led[20]                   ; 1       ;
+; led_module:u2_led_module|led[23]                   ; 1       ;
+; state_trans_model:u0_state_trans_model|time_cnt[4] ; 16      ;
+; state_trans_model:u0_state_trans_model|time_cnt[3] ; 12      ;
+; state_trans_model:u0_state_trans_model|time_cnt[1] ; 14      ;
+; state_trans_model:u0_state_trans_model|time_cnt[0] ; 15      ;
+; Total number of inverted registers = 20            ;         ;
++----------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |traffic_led|bit_seg_module:u1_bit_seg_module|num[3]          ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |traffic_led|state_trans_model:u0_state_trans_model|n_time[0] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |traffic_led|state_trans_model:u0_state_trans_model|e_time[3] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |traffic_led|state_trans_model:u0_state_trans_model|n_time[3] ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |traffic_led|state_trans_model:u0_state_trans_model|s_time[8] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |traffic_led|state_trans_model:u0_state_trans_model|e_time[5] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |traffic_led|state_trans_model:u0_state_trans_model|s_time[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |traffic_led|state_trans_model:u0_state_trans_model|Mux14     ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |traffic_led|state_trans_model:u0_state_trans_model|Mux12     ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |traffic_led|state_trans_model:u0_state_trans_model|Mux9      ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |traffic_led|state_trans_model:u0_state_trans_model|Mux12     ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |traffic_led|led_module:u2_led_module|led                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: state_trans_model:u0_state_trans_model ;
++----------------+----------+---------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                    ;
++----------------+----------+---------------------------------------------------------+
+; TIME_LED_NSY   ; 3        ; Signed Integer                                          ;
+; TIME_LED_NSR   ; 60       ; Signed Integer                                          ;
+; TIME_LED_NSG   ; 27       ; Signed Integer                                          ;
+; TIME_LED_WEY   ; 3        ; Signed Integer                                          ;
+; TIME_LED_WER   ; 60       ; Signed Integer                                          ;
+; TIME_LED_WEG   ; 27       ; Signed Integer                                          ;
+; WIDTH          ; 25000000 ; Signed Integer                                          ;
++----------------+----------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bit_seg_module:u1_bit_seg_module ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; state_count    ; 25000 ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: led_module:u2_led_module ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; Yellow_Count   ; 20000 ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Div2 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_sim ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_vam ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_sim ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Mod2 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_vam ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Div1 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_sim ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bit_seg_module:u1_bit_seg_module|lpm_divide:Mod1 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_vam ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "bit_seg_module:u1_bit_seg_module" ;
++------+-------+----------+------------------------------------+
+; Port ; Type  ; Severity ; Details                            ;
++------+-------+----------+------------------------------------+
+; en   ; Input ; Info     ; Stuck at VCC                       ;
++------+-------+----------+------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "state_trans_model:u0_state_trans_model"                                                ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; nl_time ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; el_time ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sl_time ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; wl_time ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Mon Jul 04 19:18:03 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off traffic_led -c traffic_led
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Warning (10463): Verilog HDL Declaration warning at test.v(20): "bit" is SystemVerilog-2005 keyword
+Info (12021): Found 1 design units, including 1 entities, in source file test.v
+    Info (12023): Found entity 1: test
+Info (12021): Found 1 design units, including 1 entities, in source file led_module.v
+    Info (12023): Found entity 1: led_module
+Warning (10463): Verilog HDL Declaration warning at traffic_led.v(6): "bit" is SystemVerilog-2005 keyword
+Info (12021): Found 1 design units, including 1 entities, in source file traffic_led.v
+    Info (12023): Found entity 1: traffic_led
+Warning (12019): Can't analyze file -- file traffic_led_new.bdf is missing
+Info (12127): Elaborating entity "traffic_led" for the top level hierarchy
+Warning (12125): Using design file state_trans_model.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: state_trans_model
+Info (12128): Elaborating entity "state_trans_model" for hierarchy "state_trans_model:u0_state_trans_model"
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(50): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(56): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(58): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(59): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(60): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(61): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(62): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(68): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(70): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(71): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(72): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(73): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(74): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(75): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(76): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(77): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(82): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(84): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(86): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(88): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(94): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(96): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(97): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(98): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(99): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(100): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(101): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(102): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(103): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(107): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(108): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(109): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(110): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(112): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(114): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(120): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(122): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(123): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(124): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(125): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(126): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(127): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(128): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(129): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(134): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(136): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(137): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(139): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(146): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(148): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(149): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(150): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(151): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(152): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(153): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(154): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(155): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(160): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(162): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(163): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(164): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(165): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(166): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(172): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(174): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(175): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(176): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(177): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(178): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(179): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(180): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(181): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(186): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(188): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(190): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(192): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(198): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(200): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(201): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(202): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(203): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(204): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(205): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(206): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(207): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(212): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(214): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(216): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(218): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(224): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(227): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(228): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(229): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(230): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(231): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(232): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(233): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(234): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(238): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(240): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(243): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(245): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(251): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(253): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(254): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(255): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(256): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(257): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(258): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(259): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(260): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(265): truncated value with size 32 to match size of target (6)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(266): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(267): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(268): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(269): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(270): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(271): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(272): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at state_trans_model.v(273): truncated value with size 32 to match size of target (10)
+Warning (10463): Verilog HDL Declaration warning at bit_seg_module.v(9): "bit" is SystemVerilog-2005 keyword
+Warning (12125): Using design file bit_seg_module.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: bit_seg_module
+Info (12128): Elaborating entity "bit_seg_module" for hierarchy "bit_seg_module:u1_bit_seg_module"
+Warning (10230): Verilog HDL assignment warning at bit_seg_module.v(31): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at bit_seg_module.v(32): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at bit_seg_module.v(33): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at bit_seg_module.v(34): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at bit_seg_module.v(35): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at bit_seg_module.v(36): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at bit_seg_module.v(37): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at bit_seg_module.v(38): truncated value with size 32 to match size of target (4)
+Info (12128): Elaborating entity "led_module" for hierarchy "led_module:u2_led_module"
+Info (278001): Inferred 6 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bit_seg_module:u1_bit_seg_module|Div2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bit_seg_module:u1_bit_seg_module|Mod0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bit_seg_module:u1_bit_seg_module|Div0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bit_seg_module:u1_bit_seg_module|Mod2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bit_seg_module:u1_bit_seg_module|Div1"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bit_seg_module:u1_bit_seg_module|Mod1"
+Info (12130): Elaborated megafunction instantiation "bit_seg_module:u1_bit_seg_module|lpm_divide:Div2"
+Info (12133): Instantiated megafunction "bit_seg_module:u1_bit_seg_module|lpm_divide:Div2" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_sim.tdf
+    Info (12023): Found entity 1: lpm_divide_sim
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_s6f.tdf
+    Info (12023): Found entity 1: alt_u_div_s6f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc
+Info (12130): Elaborated megafunction instantiation "bit_seg_module:u1_bit_seg_module|lpm_divide:Mod0"
+Info (12133): Instantiated megafunction "bit_seg_module:u1_bit_seg_module|lpm_divide:Mod0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_vam.tdf
+    Info (12023): Found entity 1: lpm_divide_vam
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key[3]"
+Info (21057): Implemented 843 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 40 output pins
+    Info (21061): Implemented 797 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 137 warnings
+    Info: Peak virtual memory: 4624 megabytes
+    Info: Processing ended: Mon Jul 04 19:18:05 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
