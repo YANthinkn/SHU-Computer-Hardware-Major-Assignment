@@ -1,0 +1,142 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 208 224)
+	(text "state_trans_model" (rect 5 0 79 12)(font "Arial" ))
+	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "sys_clk" (rect 0 0 31 12)(font "Arial" ))
+		(text "sys_clk" (rect 21 27 52 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "sys_rst_n" (rect 0 0 42 12)(font "Arial" ))
+		(text "sys_rst_n" (rect 21 43 63 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 192 32)
+		(output)
+		(text "state[3..0]" (rect 0 0 38 12)(font "Arial" ))
+		(text "state[3..0]" (rect 133 27 171 39)(font "Arial" ))
+		(line (pt 192 32)(pt 176 32)(line_width 3))
+	)
+	(port
+		(pt 192 48)
+		(output)
+		(text "n_time[9..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "n_time[9..0]" (rect 124 43 171 55)(font "Arial" ))
+		(line (pt 192 48)(pt 176 48)(line_width 3))
+	)
+	(port
+		(pt 192 64)
+		(output)
+		(text "e_time[9..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "e_time[9..0]" (rect 124 59 171 71)(font "Arial" ))
+		(line (pt 192 64)(pt 176 64)(line_width 3))
+	)
+	(port
+		(pt 192 80)
+		(output)
+		(text "s_time[9..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "s_time[9..0]" (rect 124 75 171 87)(font "Arial" ))
+		(line (pt 192 80)(pt 176 80)(line_width 3))
+	)
+	(port
+		(pt 192 96)
+		(output)
+		(text "w_time[9..0]" (rect 0 0 48 12)(font "Arial" ))
+		(text "w_time[9..0]" (rect 123 91 171 103)(font "Arial" ))
+		(line (pt 192 96)(pt 176 96)(line_width 3))
+	)
+	(port
+		(pt 192 112)
+		(output)
+		(text "nl_time[9..0]" (rect 0 0 48 12)(font "Arial" ))
+		(text "nl_time[9..0]" (rect 123 107 171 119)(font "Arial" ))
+		(line (pt 192 112)(pt 176 112)(line_width 3))
+	)
+	(port
+		(pt 192 128)
+		(output)
+		(text "el_time[9..0]" (rect 0 0 48 12)(font "Arial" ))
+		(text "el_time[9..0]" (rect 123 123 171 135)(font "Arial" ))
+		(line (pt 192 128)(pt 176 128)(line_width 3))
+	)
+	(port
+		(pt 192 144)
+		(output)
+		(text "sl_time[9..0]" (rect 0 0 48 12)(font "Arial" ))
+		(text "sl_time[9..0]" (rect 123 139 171 151)(font "Arial" ))
+		(line (pt 192 144)(pt 176 144)(line_width 3))
+	)
+	(port
+		(pt 192 160)
+		(output)
+		(text "wl_time[9..0]" (rect 0 0 49 12)(font "Arial" ))
+		(text "wl_time[9..0]" (rect 122 155 171 167)(font "Arial" ))
+		(line (pt 192 160)(pt 176 160)(line_width 3))
+	)
+	(parameter
+		"TIME_LED_NSY"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"TIME_LED_NSR"
+		"60"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"TIME_LED_NSG"
+		"27"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"TIME_LED_WEY"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"TIME_LED_WER"
+		"60"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"TIME_LED_WEG"
+		"27"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"WIDTH"
+		"25000000"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 176 192)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 208 -64 308 16))
+)
